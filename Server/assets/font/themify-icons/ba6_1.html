@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .trang {
+        background-color: white;
+      }
+      .container{
+        width: 500px;
+        height: 450px;
+        background-color: rgb(74, 219, 207);
+        
+        
+      }
+      table{
+        border-collapse: collapse;
+      }
+      .a{
+        width: 120px;
+        background-color: rgb(142, 149, 161);
+      }
+      .b{
+        
+      }
+       .header{
+        height:50px ;
+        width: 500px;
+        color: rgb(249, 249, 249);
+        background-color: rgb(15, 164, 152);
+        
+       }
+       h1{
+        margin-left: 40px;
+       }
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+        <h1>Nhập Thông Tin Của Bạn</h1>
+    </div>
+    <!-- <form> -->
+    <div class="container">    
+    <table>
+      <tr>
+        <td class="a">Họ tên:</td>
+        <td>
+          <input
+            type="text"
+            id="ten"
+            required
+            onkeypress="sang(event,'tendk')"
+            autofocus="true"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Tên đăng nhập:</td>
+        <td>
+          <input
+            type="text"
+            required
+            name=""
+            id="tendk"
+            onkeypress="sang(event,'ns')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Địa chỉ:</td>
+        <td>
+          <input
+            class="trang"
+            type="text"
+            required
+            id="dc"
+            onkeypress="sang(event,'gt')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Ngày sinh:</td>
+        <td>
+          <input
+            type="input"
+            required
+            name=""
+            id="ns"
+            onkeypress="sang(event,'email')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">E-mail:</td>
+        <td>
+          <input
+            type="email"
+            required
+            name=""
+            id="email"
+            onkeypress="sang(event,'phone')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Điện thoại:</td>
+        <td>
+          <input
+            class="trang"
+            type="text"
+            required
+            name=""
+            id="phone"
+            onkeypress="sang(event,'gt')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Giới tính:</td>
+        <td>
+          <input
+            type="radio"
+            required
+            name="gt"
+            id="gt"
+            value="nam"
+            onkeypress="sang(event,'ns')"
+          />Nam
+          <input
+            type="radio"
+            required
+            name="gt"
+            id="gt"
+            value="nu"
+            onkeypress="sang(event,'dk')"
+          />Nữ
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Sở thích:</td>
+        <td>
+          <input
+            type="checkbox"
+            name="dk"
+            id="dk"
+            value="ta"
+            onkeypress="sang(event,'p1')"
+          />Chơi game
+          <input
+            type="checkbox"
+            name="dk"
+            id="dk"
+            onkeypress="sang(event,'p1')"
+          />Mua sắm
+          <input
+            type="checkbox"
+            name="dk"
+            id="dk"
+            onkeypress="sang(event,'p1')"
+          />Du Lịch
+          <input
+          type="checkbox"
+          name="dk"
+          id="dk"
+          onkeypress="sang(event,'p1')"
+        />Khác
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Mật khẩu:</td>
+        <td>
+          <input
+            type="text"
+            required
+            name=""
+            id="p1"
+            onkeypress="sang(event,'p2')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="a">Gõ lại mật khẩu:</td>
+        <td>
+          <input
+            type="text"
+            required
+            name=""
+            id="p2"
+            onkeypress="sang(event,'ghichu')"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div style="color: red; text-align: center" id="err"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="a b">Địa chỉ:</td>
+        <td>
+          <textarea
+            name="ghichu"
+            required
+            id="ghichu"
+            cols="20"
+            rows="4"
+            style="resize: none"
+          ></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit" onclick="sub()">Chấp nhận</button>
+          <button type="button" onclick="out()">Bỏ qua</button>
+        </td>
+      </tr>
+    </table>
+    </div>
+    <!-- </form> -->
+    <br />
+    <br />
+    <br />
+    <table id="bang"></table>
+
+    <script>
+      let dl = [];
+      function out() {
+        location.reload();
+      }
+
+      function sangDC(e) {
+        if (e.which === 13) {
+          document.getElementById("dc").focus();
+        }
+        function titleCase(str) {
+          var convertToArray = str.toLowerCase().split(" ");
+          var result = convertToArray.map(function (val) {
+            return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+          });
+          return result.join(" ");
+        }
+        ten = titleCase(document.getElementById("ten").value);
+        document.getElementById("ten").value = ten;
+      }
+
+      function sang(e, id) {
+        if (e.which === 13) {
+          document.getElementById(id).focus();
+        }
+      }
+
+      function sub() {
+        // e.preventDefault();
+
+        let ten = document.getElementById("ten").value;
+
+        document.getElementById("ten").value = ten;
+        let dc = document.getElementById("dc").value;
+        let gt = document.getElementsByName("gt");
+        let giot;
+        for (let i = 0; i < gt.length; i++) {
+          if (gt[i].checked === true) {
+            giot = gt[i].value;
+          }
+        }
+        let ns = document.getElementById("ns").value;
+        let email = document.getElementById("email").value;
+        let re = /((0)+([0-9]{9}))/g;
+        let ktr = document.getElementById("phone").value;
+        let mang = {
+          cg: false,
+          ms: false,
+          dl: false,
+           k: false,
+        };
+        let dk = document.getElementsByName("dk");
+        for (let i = 0; i < dk.length; i++) {
+          if (i === 0) {
+            mang.cg = dk[i].checked;
+          }
+          if (i === 1) {
+            mang.ms = dk[i].checked;
+          }
+          if (i === 2) {
+            mang.dl = dk[i].checked;
+          }
+          if (i === 3) {
+            mang.k = dk[i].checked;
+          }
+        }
+        if (
+          check() &&
+          (re.test(ktr) === true || ktr === "") &&
+          email.indexOf("@") !== -1
+        ) {
+          let phone = ktr;
+          let p1 = document.getElementById("p1").value;
+          let p2 = document.getElementById("p2").value;
+          let them = {
+            ten: ten,
+            gt: giot,
+            ns: ns,
+            phone: ktr,
+            email: email,
+          };
+          dl.push(them);
+          document.getElementById("bang").innerHTML = `
+            <tr>
+                <th><input type="checkbox" /></th>
+                <th>STT</th>
+                <th>Họ Tên</th>
+                <th>Giới Tính</th>
+                <th>Ngày Sinh</th>
+                <th> Điện Thoại </th>
+                <th>Email </th>
+            </tr>`;
+          for (let i = 0; i < dl.length; i++) {
+            document.getElementById("bang").innerHTML += `
+            <tr style="text-align:center; background-color: ${
+              i % 2 === 0 ? "skyblue" : "gray"
+            }">
+                <td><input type="checkbox" /></td>
+                <td>${i + 1}</td>
+                <td>${dl[i].ten}</td>
+                <td>${dl[i].gt}</td>
+                <td>${dl[i].ns}</td>
+                <td>${dl[i].phone}</td>
+                <td>${dl[i].email}</td>
+            </tr>
+            `;
+          }
+          //   document.getElementById("bang").innerHTML += "</table>";
+        } else {
+          document.getElementById("err").innerHTML =
+            "Mat khau lap lai khong khop, so dien thoai sai hoac sai email";
+        }
+      }
+
+      function check() {
+        let p1 = document.getElementById("p1").value;
+        let p2 = document.getElementById("p2").value;
+        if (p1 !== p2 || p1 === "" || p2 === "") {
+          document.getElementById("err").innerHTML =
+            "Mat khau lap lai khong khop, so dien thoai sai hoac sai email";
+          return false;
+        } else {
+          document.getElementById("err").innerHTML = "";
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

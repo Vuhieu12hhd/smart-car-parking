@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 1</title>
+    <script> src='information.js' </script>
+  </head>
+  <body style="background: linear-gradient(115deg, #b6ceda 10%, #228ecd 90%);">
+	<h3 style="margin-left: 180px; color: aliceblue;">NHẬP THÔNG TIN CỦA BẠN</h3>
+    <form onsubmit="return false;">
+      <table width="1000px" border="0" height="200px">
+        <tr>
+          <div class="tt">
+            <td>
+              <label for="nn">Họ tên:</label>
+            </td>
+            <td width="400">
+              <input id="nameInput" type="text" name="hoten" class="input1" style="background-color: rgb(50,205,50);"/>
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td widht="200">
+              <label for="nn">Địa chỉ:</label>
+            </td>
+            <td width="400">
+              <input id="addressInput" type="text" name="tdn" class="input1" />
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td width="200"><label for="nn">Giới Tính: </label></td>
+            <td width="400">
+              <span
+                style="
+                  font-size: 20px;
+                  color: #000;
+                  margin-left: 0px;
+                  padding: 5px 5px;
+                "
+                ><input
+                  type="radio"
+                  name="gioitinh"
+                  value="1"
+                  checked="checked"
+                />Nam <input type="radio" name="gioitinh" value="0" />Nữ</span
+              >
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td widht="200">
+              <label for="nn"> Ngày sinh:</label>
+            </td>
+            <td width="400">
+              <input id="ngaysinhinput" type="text" name="tdn" class="input1" style="background-color: rgb(50,205,50);"/></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td widht="200">
+              <label for="nn">Email:</label>
+            </td>
+            <td width="400">
+              <input id="emailinput" type="text" name="tdn" class="input1" style="background-color: rgb(50,205,50);"/></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td widht="200">
+              <label for="nn"> Điện thoại:</label>
+            </td>
+            <td width="400"><input id="phoneinput" type="text" name="tdn" class="input1" /></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td width="200">
+              <label for="nn">Tên sử dụng:</label>
+            </td>
+            <td width="400"><input id="usenameinput" type="text" name="tdn" class="input1" style="background-color: rgb(50,205,50);"/></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td widht="200">
+              <label for="nn">Mật Khẩu:</label>
+            </td>
+            <td width="400">
+              <input id="passwordinput" type="password" name="mk" class="input1" style="background-color: rgb(50,205,50);"/>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="tt">
+            <td width="200">
+              <label for="nn">Gõ lại mật khẩu:</label>
+            </td>
+            <td width="400">
+              <input id="retypeinput" type="password" name="xnmk" class="input1" style="background-color: rgb(50,205,50);"/>
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td width="200"><label for="nn">Ghi chú:</label></td>
+            <td width="400">
+              <textarea
+              id="ghichuinput"
+                name="Ghichu"
+                style="
+                  font-size: 40px;
+                  color: rgb(0, 0, 0);
+                  margin-left: 0px;
+                  width: 250px;
+                  height: 90px;
+                "
+              ></textarea>
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="tt">
+            <td></td>
+            <td
+              colspan="2"
+              style="
+                font-size: 20px;
+                color: rgb(50, 205, 50);
+                margin-left: 0px;
+                width: 250px;
+                height: 54px;
+              "
+            >
+              <input onclick="send()" type="submit" name="xn" class="nut" value="Hủy" />
+              <input
+                onclick="boqua()"
+                type="reset"
+                name="chapnhan"
+                class="nut"
+                value="Đăng Ký"
+                style="margin-left: 0px"
+              />
+            </td>
+          </div>
+        </tr>
+      </table>
+    </form>
+</body>
+  <script type="text/javascript">
+    let nameNode = document.getElementById("nameInput");
+    nameNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("addressInput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let namNode = document.getElementById("addressInput");
+    namNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("ngaysinhinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let naNode = document.getElementById("ngaysinhinput");
+    naNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("emailinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let nNode = document.getElementById("emailinput");
+    nNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("phoneinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let mNode = document.getElementById("phoneinput");
+    mNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("usenameinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let aNode = document.getElementById("usenameinput");
+    aNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("passwordinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let amNode = document.getElementById("passwordinput");
+    amNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("retypeinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+    let nmNode = document.getElementById("retypeinput");
+    nmNode.addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        let addressInput = document.getElementById("ghichuinput");
+        addressInput.focus();
+        addressInput.select();
+      }
+    });
+  </script>
+</html>

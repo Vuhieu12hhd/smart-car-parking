@@ -1,0 +1,20 @@
+.container{
+    height: 400px;
+    width: 600px;
+    border: 2px;
+    background-color: rgb(122, 239, 229);
+  
+}
+.a{
+    
+    width: 150px;
+    background-color: rgb(97, 143, 212);
+  
+
+}
+tr{
+    border-collapse: collapse;
+}
+table{
+    border-collapse: collapse;
+}
